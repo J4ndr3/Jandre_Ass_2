@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HardwareDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HardwareDB.dbo.lgcustomer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="lgcustomer">
+    <Key>
+      <PropertyRef Name="cust_code" />
+      <PropertyRef Name="cust_fname" />
+      <PropertyRef Name="cust_lname" />
+    </Key>
+    <Property Name="cust_code" Type="numeric" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="cust_fname" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="cust_lname" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="cust_street" Type="varchar" MaxLength="70" />
+    <Property Name="cust_city" Type="varchar" MaxLength="50" />
+    <Property Name="cust_state" Type="char" MaxLength="2" />
+    <Property Name="cust_zip" Type="char" MaxLength="5" />
+    <Property Name="cust_balance" Type="numeric" Precision="8" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HardwareDB.dbo.lgdepartment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="lgdepartment">
+    <Key>
+      <PropertyRef Name="dept_num" />
+      <PropertyRef Name="dept_name" />
+    </Key>
+    <Property Name="dept_num" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="dept_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dept_mail_box" Type="varchar" MaxLength="3" />
+    <Property Name="dept_phone" Type="varchar" MaxLength="9" />
+    <Property Name="emp_num" Type="numeric" Precision="6" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HardwareDB.dbo.lgemployee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="lgemployee">
+    <Key>
+      <PropertyRef Name="emp_num" />
+      <PropertyRef Name="emp_lname" />
+      <PropertyRef Name="emp_email" />
+      <PropertyRef Name="emp_hireDATETIME" />
+      <PropertyRef Name="emp_title" />
+    </Key>
+    <Property Name="emp_num" Type="int" Nullable="false" />
+    <Property Name="emp_fname" Type="varchar" MaxLength="20" />
+    <Property Name="emp_lname" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="emp_email" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="emp_phone" Type="varchar" MaxLength="20" />
+    <Property Name="emp_hireDATETIME" Type="datetime" Nullable="false" />
+    <Property Name="emp_title" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="emp_comm" Type="numeric" Precision="2" Scale="2" />
+    <Property Name="dept_num" Type="numeric" Precision="5" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HardwareDB.dbo.lginvoice' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="lginvoice">
+    <Key>
+      <PropertyRef Name="inv_num" />
+    </Key>
+    <Property Name="inv_num" Type="numeric" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="inv_DATETIME" Type="datetime" />
+    <Property Name="cust_code" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="inv_total" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="employee_id" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HardwareDB.dbo.lgline' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="lgline">
+    <Key>
+      <PropertyRef Name="inv_num" />
+      <PropertyRef Name="line_num" />
+    </Key>
+    <Property Name="inv_num" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="line_num" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="prod_sku" Type="varchar" MaxLength="15" />
+    <Property Name="line_qty" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="line_price" Type="numeric" Precision="8" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HardwareDB.dbo.lgproduct' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="lgproduct">
+    <Key>
+      <PropertyRef Name="prod_sku" />
+    </Key>
+    <Property Name="prod_sku" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="prod_descript" Type="varchar" MaxLength="255" />
+    <Property Name="prod_type" Type="varchar" MaxLength="255" />
+    <Property Name="prod_base" Type="varchar" MaxLength="255" />
+    <Property Name="prod_category" Type="varchar" MaxLength="255" />
+    <Property Name="prod_price" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="prod_qoh" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="prod_min" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="brand_id" Type="numeric" Precision="4" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HardwareDB.dbo.lgsupplies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="lgsupplies">
+    <Key>
+      <PropertyRef Name="prod_sku" />
+      <PropertyRef Name="vend_id" />
+    </Key>
+    <Property Name="prod_sku" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="vend_id" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HardwareDB.dbo.lgvendor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="lgvendor">
+    <Key>
+      <PropertyRef Name="vend_id" />
+    </Key>
+    <Property Name="vend_id" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="vend_name" Type="varchar" MaxLength="255" />
+    <Property Name="vend_street" Type="varchar" MaxLength="50" />
+    <Property Name="vend_city" Type="varchar" MaxLength="50" />
+    <Property Name="vend_state" Type="varchar" MaxLength="2" />
+    <Property Name="vend_zip" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityContainer Name="HardwareDBModelStoreContainer">
+    <EntitySet Name="lgcustomer" EntityType="Self.lgcustomer" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [lgcustomer].[cust_code] AS [cust_code], 
+    [lgcustomer].[cust_fname] AS [cust_fname], 
+    [lgcustomer].[cust_lname] AS [cust_lname], 
+    [lgcustomer].[cust_street] AS [cust_street], 
+    [lgcustomer].[cust_city] AS [cust_city], 
+    [lgcustomer].[cust_state] AS [cust_state], 
+    [lgcustomer].[cust_zip] AS [cust_zip], 
+    [lgcustomer].[cust_balance] AS [cust_balance]
+    FROM [dbo].[lgcustomer] AS [lgcustomer]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="lgdepartment" EntityType="Self.lgdepartment" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [lgdepartment].[dept_num] AS [dept_num], 
+    [lgdepartment].[dept_name] AS [dept_name], 
+    [lgdepartment].[dept_mail_box] AS [dept_mail_box], 
+    [lgdepartment].[dept_phone] AS [dept_phone], 
+    [lgdepartment].[emp_num] AS [emp_num]
+    FROM [dbo].[lgdepartment] AS [lgdepartment]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="lgemployee" EntityType="Self.lgemployee" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [lgemployee].[emp_num] AS [emp_num], 
+    [lgemployee].[emp_fname] AS [emp_fname], 
+    [lgemployee].[emp_lname] AS [emp_lname], 
+    [lgemployee].[emp_email] AS [emp_email], 
+    [lgemployee].[emp_phone] AS [emp_phone], 
+    [lgemployee].[emp_hireDATETIME] AS [emp_hireDATETIME], 
+    [lgemployee].[emp_title] AS [emp_title], 
+    [lgemployee].[emp_comm] AS [emp_comm], 
+    [lgemployee].[dept_num] AS [dept_num]
+    FROM [dbo].[lgemployee] AS [lgemployee]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="lginvoice" EntityType="Self.lginvoice" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [lginvoice].[inv_num] AS [inv_num], 
+    [lginvoice].[inv_DATETIME] AS [inv_DATETIME], 
+    [lginvoice].[cust_code] AS [cust_code], 
+    [lginvoice].[inv_total] AS [inv_total], 
+    [lginvoice].[employee_id] AS [employee_id]
+    FROM [dbo].[lginvoice] AS [lginvoice]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="lgline" EntityType="Self.lgline" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [lgline].[inv_num] AS [inv_num], 
+    [lgline].[line_num] AS [line_num], 
+    [lgline].[prod_sku] AS [prod_sku], 
+    [lgline].[line_qty] AS [line_qty], 
+    [lgline].[line_price] AS [line_price]
+    FROM [dbo].[lgline] AS [lgline]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="lgproduct" EntityType="Self.lgproduct" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [lgproduct].[prod_sku] AS [prod_sku], 
+    [lgproduct].[prod_descript] AS [prod_descript], 
+    [lgproduct].[prod_type] AS [prod_type], 
+    [lgproduct].[prod_base] AS [prod_base], 
+    [lgproduct].[prod_category] AS [prod_category], 
+    [lgproduct].[prod_price] AS [prod_price], 
+    [lgproduct].[prod_qoh] AS [prod_qoh], 
+    [lgproduct].[prod_min] AS [prod_min], 
+    [lgproduct].[brand_id] AS [brand_id]
+    FROM [dbo].[lgproduct] AS [lgproduct]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="lgsupplies" EntityType="Self.lgsupplies" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [lgsupplies].[prod_sku] AS [prod_sku], 
+    [lgsupplies].[vend_id] AS [vend_id]
+    FROM [dbo].[lgsupplies] AS [lgsupplies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="lgvendor" EntityType="Self.lgvendor" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [lgvendor].[vend_id] AS [vend_id], 
+    [lgvendor].[vend_name] AS [vend_name], 
+    [lgvendor].[vend_street] AS [vend_street], 
+    [lgvendor].[vend_city] AS [vend_city], 
+    [lgvendor].[vend_state] AS [vend_state], 
+    [lgvendor].[vend_zip] AS [vend_zip]
+    FROM [dbo].[lgvendor] AS [lgvendor]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

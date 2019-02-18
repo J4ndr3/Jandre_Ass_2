@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HardwareDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="lgcustomer">
+    <Key>
+      <PropertyRef Name="cust_code" />
+      <PropertyRef Name="cust_fname" />
+      <PropertyRef Name="cust_lname" />
+    </Key>
+    <Property Name="cust_code" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="cust_fname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cust_lname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cust_street" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="cust_city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cust_state" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="cust_zip" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="cust_balance" Type="Decimal" Precision="8" Scale="2" />
+  </EntityType>
+  <EntityType Name="lgdepartment">
+    <Key>
+      <PropertyRef Name="dept_num" />
+      <PropertyRef Name="dept_name" />
+    </Key>
+    <Property Name="dept_num" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="dept_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dept_mail_box" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="dept_phone" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="emp_num" Type="Decimal" Precision="6" Scale="0" />
+  </EntityType>
+  <EntityType Name="lgemployee">
+    <Key>
+      <PropertyRef Name="emp_num" />
+      <PropertyRef Name="emp_lname" />
+      <PropertyRef Name="emp_email" />
+      <PropertyRef Name="emp_hireDATETIME" />
+      <PropertyRef Name="emp_title" />
+    </Key>
+    <Property Name="emp_num" Type="Int32" Nullable="false" />
+    <Property Name="emp_fname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="emp_lname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="emp_email" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="emp_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="emp_hireDATETIME" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="emp_title" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="emp_comm" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="dept_num" Type="Decimal" Precision="5" Scale="0" />
+  </EntityType>
+  <EntityType Name="lginvoice">
+    <Key>
+      <PropertyRef Name="inv_num" />
+    </Key>
+    <Property Name="inv_num" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="inv_DATETIME" Type="DateTime" Precision="3" />
+    <Property Name="cust_code" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="inv_total" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="employee_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="lgline">
+    <Key>
+      <PropertyRef Name="inv_num" />
+      <PropertyRef Name="line_num" />
+    </Key>
+    <Property Name="inv_num" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="line_num" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="prod_sku" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="line_qty" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="line_price" Type="Decimal" Precision="8" Scale="2" />
+  </EntityType>
+  <EntityType Name="lgproduct">
+    <Key>
+      <PropertyRef Name="prod_sku" />
+    </Key>
+    <Property Name="prod_sku" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="prod_descript" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="prod_type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="prod_base" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="prod_category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="prod_price" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="prod_qoh" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="prod_min" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="brand_id" Type="Decimal" Precision="4" Scale="0" />
+  </EntityType>
+  <EntityType Name="lgsupply">
+    <Key>
+      <PropertyRef Name="prod_sku" />
+      <PropertyRef Name="vend_id" />
+    </Key>
+    <Property Name="prod_sku" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="vend_id" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="lgvendor">
+    <Key>
+      <PropertyRef Name="vend_id" />
+    </Key>
+    <Property Name="vend_id" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="vend_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="vend_street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vend_city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vend_state" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="vend_zip" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="HardwareDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="lgcustomers" EntityType="Self.lgcustomer" />
+    <EntitySet Name="lgdepartments" EntityType="Self.lgdepartment" />
+    <EntitySet Name="lgemployees" EntityType="Self.lgemployee" />
+    <EntitySet Name="lginvoices" EntityType="Self.lginvoice" />
+    <EntitySet Name="lglines" EntityType="Self.lgline" />
+    <EntitySet Name="lgproducts" EntityType="Self.lgproduct" />
+    <EntitySet Name="lgsupplies" EntityType="Self.lgsupply" />
+    <EntitySet Name="lgvendors" EntityType="Self.lgvendor" />
+  </EntityContainer>
+</Schema>
