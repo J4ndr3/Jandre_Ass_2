@@ -35,7 +35,7 @@ namespace Ass2.Controllers
         {
             AdView vm = new AdView();
 
-            //Retrieve a list of vendors so that it can be used to populate the dropdown on the View
+            //Retrieve a list of employees so that it can be used to populate the dropdown on the View
             vm.EmpNames = GetEmployees(0);
 
             //Set default values for the FROM and TO dates
@@ -47,7 +47,7 @@ namespace Ass2.Controllers
 
 
         }
-        //This action builds a collection of SelectList items based on the Vendor table in the DB
+        //This action builds a collection of SelectList items based on the employees table in the DB
         //The selected parameter is used to preselect an item in the SelectList. The selected item will be selected by default when the dropdown list on the view loads.
         private SelectList GetEmployees(int selected)
         {
@@ -55,8 +55,8 @@ namespace Ass2.Controllers
             {
                 db.Configuration.ProxyCreationEnabled = false;
 
-                //Create a SelectListItem for each Vendor record in the DB
-                //Value is set to the primary key of the record and Text is set to the Name of the vendor
+                //Create a SelectListItem for each Employee record in the DB
+                //Value is set to the primary key of the record and Text is set to the Name of the Employee
                 var Emp = db.lgemployees.Select(x => new SelectListItem
                 {
                     Value = x.emp_num.ToString(),

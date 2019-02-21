@@ -8,7 +8,7 @@
 
 <h2>Sales</h2>
 
-<h1>Purchases from Vendor:</h1>
+<h1>Purchases from Employees:</h1>
 <div class="criteria">
     @* Create a HTML Form so that users can enter criteria for the Advanced Report *@
     @using (Html.BeginForm("Advanced", "Home", FormMethod.Post))
@@ -27,7 +27,7 @@
 @* The next section of the page will only show if report data have been returned (i.e. after criteria have been entered and processed) *@
     @if (Model.empName != null)
     {
-        //this first panel shows general details of the selected vendor
+        //this first panel shows general details of the selected Employee
         <div class="panel panel-success">
             <div class="panel-heading"><strong>Employee Name: </strong>@Model.empName.emp_fname</div>
             <div class="panel-body">
