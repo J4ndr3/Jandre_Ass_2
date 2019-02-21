@@ -13,12 +13,12 @@
     @* Create a HTML Form so that users can enter criteria for the Advanced Report *@
     @using (Html.BeginForm("Advanced", "Home", FormMethod.Post))
     {
-        <label>Select Vendor</label>
+        <label>Select Employee</label>
         @Html.DropDownListFor(m => m.Empid, Model.EmpNames, "-- Please select --", new { @class = "form-control" })
         <label>From</label>
-        @Html.TextBoxFor(m => m.DateFrom, "yyyy-MM-dd", new { @Value = "2011-01-01", @type = "date", @class = "form-control" })
+        @Html.TextBoxFor(m => m.DateFrom, "yyyy-MM-dd", new { @Value = "2011-05-01", @type = "date", @class = "form-control" })
         <label>To</label>
-        @Html.TextBoxFor(m => m.DateTo, "yyyy-MM-dd", new { @Value = "2011-12-31", @type = "date", @class = "form-control" })
+        @Html.TextBoxFor(m => m.DateTo, "yyyy-MM-dd", new { @Value = "2011-05-31", @type = "date", @class = "form-control" })
         <br />
         <input type="submit" value="Generate" class="btn btn-primary" />
     }

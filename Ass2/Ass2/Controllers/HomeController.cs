@@ -97,11 +97,11 @@ namespace Ass2.Controllers
                 });
 
                 //Load the list of ReportRecords returned by the above query into a new list grouped by Shipment Method
-                vm.results = list.GroupBy(g => g.Employee).ToList();
+                vm.results = list.GroupBy(g => g.OrderDate).ToList();
 
                 //Load the list of ReportRecords returned by the above query into a new dictionary grouped by Employee
                 //This will be used to generate the chart on the View through the MicroSoft Charts helper
-                vm.chartData = list.GroupBy(g => g.).ToDictionary(g => g.Key, g => g.Sum(v => v.Amount));
+                vm.chartData = list.GroupBy(g => g.OrderDate).ToDictionary(g => g.Key, g => g.Sum(v => v.Amount));
 
                 //Store the chartData dictionary in temporary data so that it can be accessed by the EmployeeOrdersChart action resonsible for generating the chart
                 TempData["chartData"] = vm.chartData;
