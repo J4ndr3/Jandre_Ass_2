@@ -77,6 +77,6 @@ C:\Users\jandr\Desktop\Git\Jandre_Ass_2\Ass2\Ass2\bin\Microsoft.Owin.Security.OA
 C:\Users\jandr\Desktop\Git\Jandre_Ass_2\Ass2\Ass2\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\jandr\Desktop\Git\Jandre_Ass_2\Ass2\Ass2\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\jandr\Desktop\Git\Jandre_Ass_2\Ass2\Ass2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\jandr\Desktop\Git\Jandre_Ass_2\Ass2\Ass2\obj\Debug\Ass2.csprojResolveAssemblyReference.cache
 C:\Users\jandr\Desktop\Git\Jandre_Ass_2\Ass2\Ass2\obj\Debug\Ass2.dll
 C:\Users\jandr\Desktop\Git\Jandre_Ass_2\Ass2\Ass2\obj\Debug\Ass2.pdb
+C:\Users\jandr\Desktop\Git\Jandre_Ass_2\Ass2\Ass2\obj\Debug\Ass2.csprojResolveAssemblyReference.cache
